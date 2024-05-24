@@ -1,0 +1,20 @@
+/* @media (min-width: 576px) {
+  .fotografy {
+    width: 1%;
+    height: auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .fotografy {
+    width: 25%;
+    height: auto;
+  }
+} */
+
+@media (min-width: 992px) {
+  .fotografy {
+    width: 45%;
+    height: auto;
+  }
+}
