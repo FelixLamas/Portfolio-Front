@@ -1,12 +1,14 @@
-import AboutMe from "./AboutMe/AboutMe";
-import Technologies from "./Technologies/Technologies";
+import AboutMe from "../aboutme/AboutMe";
+import Projects from "../projects/Projects";
+import Technologies from "../technologies/Technologies";
 
 const Home = () => {
   return (
-    <div>
+    <section>
       <AboutMe />
       <Technologies />
-    </div>
+      <Projects />
+    </section>
   );
 };
 

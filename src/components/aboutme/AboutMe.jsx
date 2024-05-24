@@ -1,4 +1,4 @@
-import fotografy from "../../../../public/principal.jpg";
+import fotografy from "../../../public/principal.jpg";
 import "./AboutMe.css";
 
 const AboutMe = () => {
