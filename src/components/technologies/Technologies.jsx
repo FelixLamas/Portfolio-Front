@@ -22,7 +22,7 @@ const Technologies = () => {
   useEffect(() => {
     getTechnologies();
   }, []);
-  console.log(technologies);
+
   return (
     <section className="container  ">
       <section className="d-flex flex-column flex-lg-row align-items-center">
