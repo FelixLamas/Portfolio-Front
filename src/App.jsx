@@ -1,6 +1,7 @@
 import NavBar from "./components/navbar/NavBar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Home from "./components/pages/Home";
+import Foot from "./components/footer/Foot";
 
 function App() {
   return (
@@ -11,8 +12,8 @@ function App() {
       <main>
         <Home></Home>
       </main>
-      <footer className="bg-dark text-light text-center">
-        <p>footrer</p>
+      <footer className="bg-dark text-light text-center pb-1">
+        <Foot />
       </footer>
     </>
   );
