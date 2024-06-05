@@ -1,4 +1,4 @@
-import imgTech from "../../../public/technologies.jpg";
+import imgTech from "../../../../public/technologies.jpg";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
@@ -24,7 +24,7 @@ const Technologies = () => {
   }, []);
 
   return (
-    <section className="container  ">
+    <section className="container  " id="technology">
       <section className="d-flex flex-column flex-lg-row align-items-center">
         <img
           src={imgTech}
