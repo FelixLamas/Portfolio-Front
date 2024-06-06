@@ -2,6 +2,9 @@ import Table from "react-bootstrap/Table";
 import Tecnology from "./Tecnology";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { MdOutlinePostAdd } from "react-icons/md";
+import { RiArrowGoBackFill } from "react-icons/ri";
+import { Link } from "react-router-dom";
 
 const AdminTechnologies = () => {
   const [technologies, setTechnologies] = useState([]);
@@ -23,6 +26,17 @@ const AdminTechnologies = () => {
   }, []);
   return (
     <section className="container">
+      <section className="d-flex flex-row justify-content-between my-3">
+        <h2>Tecnologías</h2>
+        <div>
+          <Link to="/createTechnology" relative="path">
+            <MdOutlinePostAdd className="fs-2 mx-3" />
+          </Link>
+          <Link to="../adminOptions" relative="path">
+            <RiArrowGoBackFill className="fs-2 mx-3" />
+          </Link>
+        </div>
+      </section>
       <Table striped bordered hover>
         <thead>
           <tr>

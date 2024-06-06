@@ -9,6 +9,7 @@ import Technologies from "./components/pages/technologies/Technologies";
 import AdminTechnologies from "./components/pages/admin/AdminTechnologies";
 import AdminProjects from "./components/pages/admin/AdminProjects";
 import CreateProject from "./components/pages/admin/CreateProject";
+import CreateTechnology from "./components/pages/admin/CreateTechnology";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/adminTechnologies" element={<AdminTechnologies />} />
           <Route path="/adminProjects" element={<AdminProjects />} />
           <Route path="/createProject" element={<CreateProject />} />
+          <Route path="/createTechnology" element={<CreateTechnology />} />
         </Routes>
       </main>
       <footer className="bg-dark text-light text-center pb-1">
