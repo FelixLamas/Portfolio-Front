@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
-import { Link } from "react-router-dom";
+import Button from "react-bootstrap/Button";
 import { MdEditDocument } from "react-icons/md";
 import { AiFillDelete } from "react-icons/ai";
 
-const Tecnology = ({ tech }) => {
+const Tecnology = ({ tech, setShowEditTech, setTechnology }) => {
   return (
     <tr>
       <td>{tech.name}</td>
@@ -12,12 +12,18 @@ const Tecnology = ({ tech }) => {
         <img src={tech.icon} alt={`Logo de {tech.name}`} className="col-2" />
       </td>
       <td>
-        <Link to=".." target="_blanck">
+        <Button
+          variant="primary"
+          onClick={() => {
+            setShowEditTech(true);
+            setTechnology(tech);
+          }}
+        >
           <MdEditDocument className="fs-2" />
-        </Link>
-        <Link to=".." target="_blanck">
+        </Button>
+        <Button variant="primary" onClick={() => setShowEditTech(true)}>
           <AiFillDelete className="fs-2" />
-        </Link>
+        </Button>
       </td>
     </tr>
   );

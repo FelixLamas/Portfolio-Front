@@ -5,9 +5,15 @@ import { useState, useEffect } from "react";
 import { MdOutlinePostAdd } from "react-icons/md";
 import { RiArrowGoBackFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
+import TechnologyEditM from "./TechnologyEditM";
 
 const AdminTechnologies = () => {
   const [technologies, setTechnologies] = useState([]);
+  const [technology, setTechnology] = useState({});
+  const [showEditTech, setShowEditTech] = useState(false);
+
+  const handleCloseEditTech = () => setShowEditTech(false);
+  const handleShowEditTech = () => setShowEditTech(true);
   const API = import.meta.env.VITE_API;
 
   const getTechnologies = async () => {
@@ -48,10 +54,21 @@ const AdminTechnologies = () => {
         </thead>
         <tbody>
           {technologies.map((elem, index) => (
-            <Tecnology tech={elem} key={index} />
+            <Tecnology
+              tech={elem}
+              key={index}
+              handleShowEditTech={handleShowEditTech}
+              setShowEditTech={setShowEditTech}
+              setTechnology={setTechnology}
+            />
           ))}
         </tbody>
       </Table>
+      <TechnologyEditM
+        showEditTech={showEditTech}
+        handleCloseEditTech={handleCloseEditTech}
+        technology={technology}
+      />
     </section>
   );
 };

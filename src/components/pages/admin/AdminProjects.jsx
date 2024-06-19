@@ -5,9 +5,15 @@ import { useState, useEffect } from "react";
 import Project from "./Project";
 import { MdOutlinePostAdd } from "react-icons/md";
 import { RiArrowGoBackFill } from "react-icons/ri";
+import ProjectEditM from "./ProjectEditM";
 
 const AdminProjects = () => {
   const [projects, setProjects] = useState([]);
+  const [project, setProject] = useState({});
+  const [showEdit, setShowEdit] = useState(false);
+
+  const handleCloseEdit = () => setShowEdit(false);
+  const handleShowEdit = () => setShowEdit(true);
   const API = import.meta.env.VITE_API;
 
   const getProjects = async () => {
@@ -51,10 +57,21 @@ const AdminProjects = () => {
         </thead>
         <tbody>
           {projects.map((elem, index) => (
-            <Project proj={elem} key={index} />
+            <Project
+              proj={elem}
+              key={index}
+              handleShowEdit={handleShowEdit}
+              setShowEdit={setShowEdit}
+              setProject={setProject}
+            />
           ))}
         </tbody>
       </Table>
+      <ProjectEditM
+        showEdit={showEdit}
+        handleCloseEdit={handleCloseEdit}
+        project={project}
+      />
     </section>
   );
 };

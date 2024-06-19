@@ -2,8 +2,9 @@
 import { Link } from "react-router-dom";
 import { MdEditDocument } from "react-icons/md";
 import { AiFillDelete } from "react-icons/ai";
+import Button from "react-bootstrap/Button";
 
-const Project = ({ proj }) => {
+const Project = ({ proj, setShowEdit, setProject }) => {
   return (
     <tr>
       <td>{proj.name}</td>
@@ -22,12 +23,18 @@ const Project = ({ proj }) => {
         <img src={proj.image} alt={`Logo de ${proj.name}`} className="col-2" />
       </td>
       <td>
-        <Link to=".." target="_blanck">
+        <Button
+          variant="primary"
+          onClick={() => {
+            setShowEdit(true);
+            setProject(proj);
+          }}
+        >
           <MdEditDocument className="fs-2" />
-        </Link>
-        <Link to=".." target="_blanck">
+        </Button>
+        <Button variant="primary" onClick={() => setShowEdit(true)}>
           <AiFillDelete className="fs-2" />
-        </Link>
+        </Button>
       </td>
     </tr>
   );
