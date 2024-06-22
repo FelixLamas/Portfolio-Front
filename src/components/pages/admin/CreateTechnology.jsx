@@ -7,9 +7,11 @@ import clsx from "clsx";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const CreateTechnology = () => {
   const API = import.meta.env.VITE_API;
+  const navigate=useNavigate();
 
   const projectSchema = Yup.object().shape({
     name: Yup.string()
@@ -20,7 +22,7 @@ const CreateTechnology = () => {
       .min(4, "Minimo de 4 caracteres.")
       .max(500, "Maximo 500 caracteres.")
       .required("La imagen es requerida."),
-    description: Yup.string()
+    seniority: Yup.string()
       .min(4, "Minimo de 4 caracteres.")
       .max(1500, "Maximo 500 caracteres.")
       .required("La descripción es requerida."),
@@ -29,7 +31,7 @@ const CreateTechnology = () => {
   const initialValues = {
     name: "",
     icon: "",
-    description: "",
+    seniority: "",
   };
 
   const formik = useFormik({
@@ -38,7 +40,7 @@ const CreateTechnology = () => {
     validateOnBlur: true,
     validateOnChange: true,
     onSubmit: (values) => {
-      console.log(values);
+      
       Swal.fire({
         title: "¿Estas seguro de guardar la tecnología?",
         showDenyButton: true,
@@ -56,6 +58,7 @@ const CreateTechnology = () => {
                 "",
                 "success"
               );
+              navigate("/adminTechnologies");
             }
           } catch (error) {
             console.error(error);
@@ -77,7 +80,7 @@ const CreateTechnology = () => {
       </section>
       <Form onSubmit={formik.handleSubmit}>
         <div className="row">
-          <Form.Group controlId="nameProject" className="col-lg my-2">
+          <Form.Group controlId="nameTechnology" className="col-lg my-2">
             <Form.Label className="mb-1">Nombre</Form.Label>
             <Form.Control
               type="text"
@@ -100,7 +103,7 @@ const CreateTechnology = () => {
               </div>
             )}
           </Form.Group>
-          <Form.Group controlId="imageProject" className="col-lg my-2">
+          <Form.Group controlId="imageTechnologi" className="col-lg my-2">
             <Form.Label className="mb-1">Logo</Form.Label>
             <Form.Control
               type="url"
@@ -124,28 +127,28 @@ const CreateTechnology = () => {
             )}
           </Form.Group>
         </div>
-        <Form.Group className="mb-3" controlId="descriptionProject">
+        <Form.Group className="mb-3" controlId="seniorityProject">
           <Form.Label className="mb-1">Descripción</Form.Label>
           <Form.Control
             as="textarea"
             rows={5}
-            name="description"
-            {...formik.getFieldProps("description")}
+            name="seniority"
+            {...formik.getFieldProps("seniority")}
             className={clsx(
               "form-control",
               {
                 "is-invalid":
-                  formik.touched.description && formik.errors.description,
+                  formik.touched.seniority && formik.errors.seniority,
               },
               {
                 "is-valid":
-                  formik.touched.description && !formik.errors.description,
+                  formik.touched.seniority && !formik.errors.seniority,
               }
             )}
           />
-          {formik.touched.description && formik.errors.description && (
+          {formik.touched.seniority && formik.errors.seniority && (
             <div className="mt-2 text-danger fw-bolder">
-              <span role="alert">{formik.errors.description}</span>
+              <span role="alert">{formik.errors.seniority}</span>
             </div>
           )}
         </Form.Group>

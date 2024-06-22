@@ -47,7 +47,7 @@ const AdminTechnologies = () => {
         <thead>
           <tr>
             <th>Nombre de la tecnología</th>
-            <th>Descripción</th>
+            <th>Nivel</th>
             <th>Logo</th>
             <th>Acciones</th>
           </tr>
@@ -60,6 +60,7 @@ const AdminTechnologies = () => {
               handleShowEditTech={handleShowEditTech}
               setShowEditTech={setShowEditTech}
               setTechnology={setTechnology}
+              getTechnologies={getTechnologies}
             />
           ))}
         </tbody>
@@ -68,6 +69,7 @@ const AdminTechnologies = () => {
         showEditTech={showEditTech}
         handleCloseEditTech={handleCloseEditTech}
         technology={technology}
+        getTechnologies={getTechnologies}
       />
     </section>
   );

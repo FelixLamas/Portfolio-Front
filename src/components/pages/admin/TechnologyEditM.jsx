@@ -8,26 +8,26 @@ import { useFormik } from "formik";
 import Swal from "sweetalert2";
 import { useEffect } from "react";
 
-const TechnologyEditM = ({ showEditTech, handleCloseEditTech, technology }) => {
+const TechnologyEditM = ({ showEditTech, handleCloseEditTech, technology, getTechnologies }) => {
   const API = import.meta.env.VITE_API;
   useEffect(() => {
     if (technology) {
-      formik.setFieldValue("name", technology.name, true);
-      formik.setFieldValue("icon", technology.icon, true);
-      formik.setFieldValue("description", technology.description, true);
+      formik.setFieldValue("name", technology.name || "", true);
+      formik.setFieldValue("icon", technology.icon || "", true);
+      formik.setFieldValue("seniority", technology.seniority || "", true);
     }
   }, [technology]);
 
-  const projectSchema = Yup.object().shape({
+  const technologySchema = Yup.object().shape({
     name: Yup.string()
-      .min(4, "Minimo de 4 caracteres.")
+      .min(1, "Minimo de 1 caracteres.")
       .max(100, "Maximo 100 caracteres.")
       .required("El nombre es requerido."),
     icon: Yup.string()
       .min(4, "Minimo de 4 caracteres.")
       .max(500, "Maximo 500 caracteres.")
       .required("La imagen es requerida."),
-    description: Yup.string()
+    seniority: Yup.string()
       .min(4, "Minimo de 4 caracteres.")
       .max(1500, "Maximo 500 caracteres.")
       .required("La descripción es requerida."),
@@ -36,18 +36,18 @@ const TechnologyEditM = ({ showEditTech, handleCloseEditTech, technology }) => {
   const initialValues = {
     name: "",
     icon: "",
-    description: "",
+    seniority: "",
   };
 
   const formik = useFormik({
     initialValues,
-    validationSchema: projectSchema,
+    validationSchema: technologySchema,
     validateOnBlur: true,
     validateOnChange: true,
     onSubmit: (values) => {
-      console.log(values);
+      
       Swal.fire({
-        title: "¿Estas seguro de guardar la tecnología?",
+        title: "¿Estas seguro de editar la tecnología?",
         showDenyButton: true,
         showCancelButton: true,
         confirmButtonText: "Guardar",
@@ -55,14 +55,16 @@ const TechnologyEditM = ({ showEditTech, handleCloseEditTech, technology }) => {
       }).then(async (result) => {
         if (result.isConfirmed) {
           try {
-            const res = await axios.post(`${API}/technology`, values);
-            if (res.status === 201) {
+            const res = await axios.put(`${API}/technology/update/${technology._id}`, values);
+            if (res.status === 200) {
               formik.resetForm();
+              getTechnologies();
               Swal.fire(
-                "La tecnología se guardado correctamente.",
+                "La tecnología se edito correctamente.",
                 "",
                 "success"
               );
+              handleCloseEditTech();
             }
           } catch (error) {
             console.error(error);
@@ -134,28 +136,28 @@ const TechnologyEditM = ({ showEditTech, handleCloseEditTech, technology }) => {
                 )}
               </Form.Group>
             </div>
-            <Form.Group className="mb-3" controlId="descriptionProject">
-              <Form.Label className="mb-1">Descripción</Form.Label>
+            <Form.Group className="mb-3" controlId="seniorityProject">
+              <Form.Label className="mb-1">Seniority</Form.Label>
               <Form.Control
                 as="textarea"
                 rows={5}
-                name="description"
-                {...formik.getFieldProps("description")}
+                name="seniority"
+                {...formik.getFieldProps("seniority")}
                 className={clsx(
                   "form-control",
                   {
                     "is-invalid":
-                      formik.touched.description && formik.errors.description,
+                      formik.touched.seniority && formik.errors.seniority,
                   },
                   {
                     "is-valid":
-                      formik.touched.description && !formik.errors.description,
+                      formik.touched.seniority && !formik.errors.seniority,
                   }
                 )}
               />
-              {formik.touched.description && formik.errors.description && (
+              {formik.touched.seniority && formik.errors.seniority && (
                 <div className="mt-2 text-danger fw-bolder">
-                  <span role="alert">{formik.errors.description}</span>
+                  <span role="alert">{formik.errors.seniority}</span>
                 </div>
               )}
             </Form.Group>
