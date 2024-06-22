@@ -8,15 +8,15 @@ import { useFormik } from "formik";
 import Swal from "sweetalert2";
 import { useEffect } from "react";
 
-const ProjectEditM = ({ showEdit, handleCloseEdit, project }) => {
+const ProjectEditM = ({ showEdit, handleCloseEdit, project , getProjects}) => {
   const API = import.meta.env.VITE_API;
   useEffect(() => {
     if (project) {
-      formik.setFieldValue("name", project.name, true);
-      formik.setFieldValue("url", project.url, true);
-      formik.setFieldValue("repository", project.repository, true);
-      formik.setFieldValue("image", project.image, true);
-      formik.setFieldValue("description", project.description, true);
+      formik.setFieldValue("name", project.name || "", true);
+      formik.setFieldValue("url", project.url || "", true);
+      formik.setFieldValue("repository", project.repository || "", true);
+      formik.setFieldValue("image", project.image || "", true);
+      formik.setFieldValue("description", project.description || "", true);
     }
   }, [project]);
 
@@ -57,7 +57,7 @@ const ProjectEditM = ({ showEdit, handleCloseEdit, project }) => {
     validateOnBlur: true,
     validateOnChange: true,
     onSubmit: (values) => {
-      console.log(values);
+     
       Swal.fire({
         title: "¿Estas seguro de editar el proyecto?",
         showCancelButton: true,
@@ -66,10 +66,12 @@ const ProjectEditM = ({ showEdit, handleCloseEdit, project }) => {
       }).then(async (result) => {
         if (result.isConfirmed) {
           try {
-            const res = await axios.put(`${API}/project`, values);
+            const res = await axios.put(`${API}/project/update/${project._id}`, values);
             if (res.status === 200) {
               formik.resetForm();
+              getProjects();
               Swal.fire("Proyecto guardado correctamente.", "", "success");
+              handleCloseEdit();
             }
           } catch (error) {
             console.error(error);

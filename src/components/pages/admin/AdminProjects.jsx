@@ -63,6 +63,7 @@ const AdminProjects = () => {
               handleShowEdit={handleShowEdit}
               setShowEdit={setShowEdit}
               setProject={setProject}
+              getProjects={getProjects}
             />
           ))}
         </tbody>
@@ -71,6 +72,7 @@ const AdminProjects = () => {
         showEdit={showEdit}
         handleCloseEdit={handleCloseEdit}
         project={project}
+        getProjects={getProjects}
       />
     </section>
   );
