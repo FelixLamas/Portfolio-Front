@@ -7,33 +7,40 @@ import { useFormik } from "formik";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import AdminContext from "../../context/AdminContext";
-import {  useContext, useState } from "react";
+import { useContext, useState } from "react";
 import Swal from "sweetalert2";
 
 const Login = ({ show, handleClose }) => {
-  const {setCurrentAdmin, SaveAuth}= useContext(AdminContext);
+  const { setCurrentAdmin, SaveAuth } = useContext(AdminContext);
   const API = import.meta.env.VITE_API;
   const navigate = useNavigate();
 
   const LoginSchema = Yup.object().shape({
     user: Yup.string()
-      .min(4)
-      .max(100)
+      .min(4, "Minimo de 4 caracteres")
+      .max(20, "Maximo de 20 caracteres")
       .required("El usuario es requerido"),
-    password: Yup.string().min(8).max(16).required("La contraseña es requrida.").matches(/^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$/, "Formato incorrecto"),
+    password: Yup.string()
+      .min(8, "Minimo de 8 caracteres.")
+      .max(16, "Maximo de 16 caracteres.")
+      .required("La contraseña es requrida.")
+      .matches(
+        /^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$/,
+        "Formato incorrecto"
+      ),
   });
 
   const initialValues = {
-    user:"",
-    password:"",
-  }
+    user: "",
+    password: "",
+  };
 
-  const formik =useFormik({
+  const formik = useFormik({
     initialValues,
-    validationSchema:LoginSchema,
-    validateOnBlur:true,
-    validateOnChange:true,
-    onSubmit: async (values)=>{
+    validationSchema: LoginSchema,
+    validateOnBlur: true,
+    validateOnChange: true,
+    onSubmit: async (values) => {
       Swal.fire({
         title: "Iniciando sesión...!",
         allowEscapeKey: false,
@@ -44,15 +51,15 @@ const Login = ({ show, handleClose }) => {
         },
       });
       try {
-        const res= await axios.post(`${API}/admin/login`, values);
-        if (res.status===200) {
+        const res = await axios.post(`${API}/admin/login`, values);
+        if (res.status === 200) {
           SaveAuth(res.data);
           setCurrentAdmin(res.data);
           formik.resetForm();
           Swal.close();
           handleClose();
           navigate("/adminOptions");
-        } 
+        }
       } catch (error) {
         Swal.close();
         if (error.response.status) {
@@ -62,11 +69,11 @@ const Login = ({ show, handleClose }) => {
             text: "Email y/o usuario incorrecto",
           });
         } else {
-          console.error(error)
+          console.error(error);
         }
       }
-    }
-  })
+    },
+  });
   return (
     <>
       <Modal
@@ -75,13 +82,14 @@ const Login = ({ show, handleClose }) => {
         backdrop="static"
         keyboard={false}
       >
-        <Modal.Header closeButton>
-          <Modal.Title>Bienvenido Felix</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className="modal-custom">
+          <Modal.Title className="mb-4">Bienvenido Felix</Modal.Title>
           <Form onSubmit={formik.handleSubmit}>
             <Form.Group className="mb-3" controlId="user">
-              <Form.Control type="text" placeholder="Ingresa tu usuario." name="user"
+              <Form.Control
+                type="text"
+                placeholder="Ingresa tu usuario."
+                name="user"
                 {...formik.getFieldProps("user")}
                 className={clsx(
                   "form-control",
@@ -90,7 +98,8 @@ const Login = ({ show, handleClose }) => {
                   },
                   {
                     "is-valid": formik.touched.user && !formik.errors.user,
-                  }
+                  },
+                  "input-custom"
                 )}
               />
               {formik.touched.user && formik.errors.user && (
@@ -108,11 +117,14 @@ const Login = ({ show, handleClose }) => {
                 className={clsx(
                   "form-control",
                   {
-                    "is-invalid": formik.touched.password && formik.errors.password,
+                    "is-invalid":
+                      formik.touched.password && formik.errors.password,
                   },
                   {
-                    "is-valid": formik.touched.password && !formik.errors.password,
-                  }
+                    "is-valid":
+                      formik.touched.password && !formik.errors.password,
+                  },
+                  "input-custom"
                 )}
               />
               {formik.touched.password && formik.errors.password && (
@@ -121,10 +133,10 @@ const Login = ({ show, handleClose }) => {
                 </div>
               )}
             </Form.Group>
-            <Button variant="secondary" onClick={handleClose}>
+            <Button onClick={handleClose} className="btn-close-modal-custom">
               Cerrar
             </Button>
-            <Button variant="primary" type="submit" className="mx-2">
+            <Button type="submit" className="mx-2 btn-modal-custom">
               Ingresar
             </Button>
           </Form>

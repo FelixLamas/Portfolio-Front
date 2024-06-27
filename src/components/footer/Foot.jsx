@@ -1,19 +1,23 @@
-import SocialNetworks from "../../socialNetworks/SocialNetworks";
+import SocialNetworks from "../socialNetworks/SocialNetworks";
 
 const Foot = () => {
   return (
     <article className="container">
-      <div className="d-flex flex-column flex-lg-row justify-content-around align-items-center">
-        <section className="d-flex flex-column mt-3">
+      <div className="d-flex flex-column flex-lg-row justify-content-evenly align-items-center">
+        <section className="d-flex flex-column mt-3 order-lg-1">
           <h5>Contacto</h5>
-          <p className="my-1">felamas@gmail.com</p>
-          <p className="my-1">381-5747112</p>
+          <p className="mb-1 fs-5">felamas@gmail.com</p>
+          <p className="mb-1">381-5747112</p>
         </section>
-        <SocialNetworks />
+        <section className="order-lg-3">
+          <SocialNetworks />
+        </section>
+        <section className="order-lg-2">
+          <p className="mt-2 mb-1">
+            &copy; 2024 | Felix Eloy Lamas | Tucumán Argentina
+          </p>
+        </section>
       </div>
-      <section>
-        <p className="mt-2 mb-1">Todos los derechos reservados.</p>
-      </section>
     </article>
   );
 };

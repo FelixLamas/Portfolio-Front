@@ -1,7 +1,6 @@
-import imgTech from "../../../../public/technologies.jpg";
+import("./tecnologies.css");
 import axios from "axios";
 import { useState, useEffect } from "react";
-
 import Card from "react-bootstrap/Card";
 
 const Technologies = () => {
@@ -25,28 +24,35 @@ const Technologies = () => {
 
   return (
     <section className="container  " id="technology">
-      <section className="d-flex flex-column flex-lg-row align-items-center">
+      <section className="d-flex flex-column flex-lg-row align-items-center bg-custon-am my-3">
         <img
-          src={imgTech}
+          src="https://i.pinimg.com/564x/dc/96/36/dc9636358debe5e52ae70dea2c94d088.jpg"
           alt="Logo de lenguajes de programación"
           className="col-12 col-lg-6"
         />
-        <div className="ms-3">
+        <div className="mx-3">
           <h2>Tecnologías</h2>
           <p>
-            En esta seccion te mostrare las tecnologias que conocos, ire por las
-            que mas he utilizado y tengo mayor manejo, hasta las que he
+            En ésta sección te muestro las tecnologías que conozco, iré por las
+            que más he utilizado y tengo mayor manejo, hasta las que he
             utilizado menos.
           </p>
         </div>
       </section>
-      <article className="d-flex flex-column flex-lg-row justify-content-evenly flex-wrap">
+      <article className="d-flex flex-column flex-lg-row justify-content-evenly flex-wrap align-items-stretch ">
         {technologies.map((elem, index) => (
-          <Card key={index} className="col-lg-2">
-            <Card.Img variant="top" src={elem.icon} />
-            <Card.Body>
+          <Card
+            key={index}
+            className="col-8 col-lg-2 p-2 mx-auto mx-lg-1 my-2  d-flex flex-column bg-card-custom"
+          >
+            <Card.Img
+              variant="top"
+              src={elem.icon}
+              className="img-fluid image mx-auto"
+            />
+            <Card.Body className="text-center">
               <Card.Title>{elem.name}</Card.Title>
-              <Card.Text>{elem.description}</Card.Text>
+              <Card.Text>{elem.seniority}</Card.Text>
             </Card.Body>
           </Card>
         ))}

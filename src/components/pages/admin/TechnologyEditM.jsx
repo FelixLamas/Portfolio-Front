@@ -48,10 +48,11 @@ const TechnologyEditM = ({ showEditTech, handleCloseEditTech, technology, getTec
       
       Swal.fire({
         title: "¿Estas seguro de editar la tecnología?",
-        showDenyButton: true,
         showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
         confirmButtonText: "Guardar",
-        denyButtonText: `Cancelar`,
+        cancelButtonText:"Cancelar",
       }).then(async (result) => {
         if (result.isConfirmed) {
           try {
