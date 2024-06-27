@@ -1,4 +1,3 @@
-import("./tecnologies.css");
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Card from "react-bootstrap/Card";
