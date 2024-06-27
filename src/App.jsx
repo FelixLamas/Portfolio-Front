@@ -10,9 +10,10 @@ import AdminTechnologies from "./components/pages/admin/AdminTechnologies";
 import AdminProjects from "./components/pages/admin/AdminProjects";
 import CreateProject from "./components/pages/admin/CreateProject";
 import CreateTechnology from "./components/pages/admin/CreateTechnology";
-import adminContext from "./components/context/AdminContext"
+import adminContext from "./components/context/AdminContext";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import("./App.css");
 
 function App() {
   const [currentAdmin, setCurrentAdmin] = useState(undefined);
@@ -49,28 +50,43 @@ function App() {
     }
   }, [currentAdmin]);
   return (
-    <>
-      <adminContext.Provider value={{currentAdmin, setCurrentAdmin, SaveAuth, GetAuth, RemoveAuth}}>
-      <header className="sticky-top">
+    <adminContext.Provider
+      value={{ currentAdmin, setCurrentAdmin, SaveAuth, GetAuth, RemoveAuth }}
+    >
+      <header className="sticky-top ">
         <NavBar />
       </header>
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/adminOptions" element={currentAdmin!==undefined &&<AdminOptions />} />
+          <Route
+            path="/adminOptions"
+            element={currentAdmin !== undefined && <AdminOptions />}
+          />
           <Route path="/technologies" element={<Technologies />} />
-          <Route path="/projects" element={ <Projects />} />
-          <Route path="/adminTechnologies" element={ currentAdmin!==undefined &&<AdminTechnologies />} />
-          <Route path="/adminProjects" element={ currentAdmin!==undefined &&<AdminProjects />} />
-          <Route path="/createProject" element={ currentAdmin!==undefined &&<CreateProject />} />
-          <Route path="/createTechnology" element={currentAdmin!==undefined &&<CreateTechnology />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route
+            path="/adminTechnologies"
+            element={currentAdmin !== undefined && <AdminTechnologies />}
+          />
+          <Route
+            path="/adminProjects"
+            element={currentAdmin !== undefined && <AdminProjects />}
+          />
+          <Route
+            path="/createProject"
+            element={currentAdmin !== undefined && <CreateProject />}
+          />
+          <Route
+            path="/createTechnology"
+            element={currentAdmin !== undefined && <CreateTechnology />}
+          />
         </Routes>
       </main>
-      <footer className="bg-dark text-light text-center pb-1">
+      <footer className="bg-dark text-light text-center pb-1 bg-custom">
         <Foot />
       </footer>
-      </adminContext.Provider>
-    </>
+    </adminContext.Provider>
   );
 }
 

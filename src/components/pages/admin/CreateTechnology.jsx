@@ -15,7 +15,7 @@ const CreateTechnology = () => {
 
   const projectSchema = Yup.object().shape({
     name: Yup.string()
-      .min(4, "Minimo de 4 caracteres.")
+      .min(1, "Minimo de 1 caracteres.")
       .max(100, "Maximo 100 caracteres.")
       .required("El nombre es requerido."),
     icon: Yup.string()
@@ -43,10 +43,11 @@ const CreateTechnology = () => {
       
       Swal.fire({
         title: "¿Estas seguro de guardar la tecnología?",
-        showDenyButton: true,
         showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
         confirmButtonText: "Guardar",
-        denyButtonText: `Cancelar`,
+        cancelButtonText:"Cancelar",
       }).then(async (result) => {
         if (result.isConfirmed) {
           try {
@@ -73,7 +74,7 @@ const CreateTechnology = () => {
   return (
     <section className="container my-3">
       <section className="d-flex flex-row justify-content-between my-3">
-        <h3>Crear Proyecto</h3>
+        <h3>Crear Tecnología</h3>
         <Link to="../adminTechnologies" relative="path">
           <RiArrowGoBackFill className="fs-2 mx-3" />
         </Link>

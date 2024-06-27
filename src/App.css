@@ -1,42 +1,128 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+body{
+ 
+  background-image: linear-gradient(rgba(206, 236, 239, 0.295),rgba(3, 13, 79, 0.589)),
+                    url("https://i.pinimg.com/564x/54/a5/ac/54a5accbf13a69d9374c1a5fd2e0c4c6.jpg") ;
+  opacity: 0.92;
+
+}
+.bg-custom{
+  background-color: #030d4f !important;
+}
+
+.btn-nav-custom{
+  background-color: #ffc52c;
+  color: black;
+
+  border: 1px solid  #030d4f;
+ 
+  ;
+}
+.btn-nav-custom:hover{
+  background-color:#fb0c06;
+  color: #ceecef;
+  border: 1px solid  #030d4f;
+}
+.nav-link-custom{
+  background-color:#ffc52c !important;
+  color: black;
+}
+.nav-link-custom:hover{
+  background-color:#fb0c06 !important;
+  color: #ceecef;
+  border: 1px solid  #030d4f;
+}
+
+.image-option{
+   height:300px;
+   object-fit: cover;
+    width: 100%;
+    border: 1px solid red;
+}
+
+.image-container {
+  position: relative;
+  
+}
+
+.text-overlay {
+  position: absolute;
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  color:black; 
+  border-radius: 5px; 
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.social-icons{
+  color: rgba(0, 0, 0, 0.842);
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+.git-hub-icon{
+  color:rgba(0, 0, 0, 0.849);
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.linkedin-icon{
+  color: #0e76a8;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.git-hub-icon:hover{
+  color: #ffc52c ;
+}
+.linkedin-icon:hover{
+  color: #ffc52c;
+}
+
+.bg-custon-am{
+  background-color: #e7edea;
+}
+.git-hub-icon-foot{
+  color: #e7edea;
+}
+
+.modal-custom{
+  background-color:  #030d4fe8;
+  color: #e7edea;
+  border: 1px solid black;
+}
+.btn-modal-custom{
+  background-color: #ffc52c;
+  color:black ;
+  border: 1px solid black;
+}
+.btn-modal-custom:hover{
+  background-color: #fb0c06;
+  color:#e7edea ;
+  border: 1px solid black;
+}
+.btn-close-modal-custom{
+  background-color: #ceecef6e;
+  color:black ;
+  border: 1px solid black;
+}
+.btn-close-modal-custom:hover{
+  background-color: #030d4fe8;
+  color:#e7edea ;
+  border: 1px solid black;
+}
+
+.input-custom{
+  background-color: #ceecef !important;
+}
+.btn-custom{
+  width: 110px;     
+}
+.bg-card-custom{
+  background-color: #ceecef !important;
+  border: 1px solid #030d4f; 
   }
-  to {
-    transform: rotate(360deg);
+  .image{
+      height: 110px; 
+      width: 65%;
   }
-}
+  
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@media (min-width: 992px) {
+  .fotografy {
+    width: 45%;
+    height: auto;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }

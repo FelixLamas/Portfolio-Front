@@ -51,7 +51,7 @@ const Project = ({ proj, setShowEdit, setProject,getProjects }) => {
         </Link>
       </td>
       <td>
-        <img src={proj.image} alt={`Logo de ${proj.name}`} className="col-2" />
+        <img src={proj.image} alt={`Logo de ${proj.name}`} className="col-10" />
       </td>
       <td>
         <Button

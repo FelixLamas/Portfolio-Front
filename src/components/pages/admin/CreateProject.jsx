@@ -1,7 +1,7 @@
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { RiArrowGoBackFill } from "react-icons/ri";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import clsx from "clsx";
 import * as Yup from "yup";
@@ -10,6 +10,7 @@ import Swal from "sweetalert2";
 
 const CreateProject = () => {
   const API = import.meta.env.VITE_API;
+  const navigate=useNavigate();
 
   const projectSchema = Yup.object().shape({
     name: Yup.string()
@@ -51,10 +52,11 @@ const CreateProject = () => {
       console.log(values);
       Swal.fire({
         title: "¿Estas seguro de guardar el proyecto?",
-        showDenyButton: true,
         showCancelButton: true,
-        confirmButtonText: "Guardas",
-        denyButtonText: `Cancelar`,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Guardar",
+        cancelButtonText:"Cancelar",
       }).then(async (result) => {
         if (result.isConfirmed) {
           try {
@@ -62,6 +64,7 @@ const CreateProject = () => {
             if (res.status === 201) {
               formik.resetForm();
               Swal.fire("Proyecto guardado correctamente.", "", "success");
+              navigate("/adminProjects")
             }
           } catch (error) {
             console.error(error);
