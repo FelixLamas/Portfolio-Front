@@ -1,6 +1,7 @@
 import { FaGithubAlt } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { TbFileCv } from "react-icons/tb";
 import("../../App.css");
 
 const SocialNetworks = () => {
@@ -14,6 +15,9 @@ const SocialNetworks = () => {
         target="_blanck"
       >
         <FaLinkedin className="fs-1 mx-4 mx-lg-2 social-icons linkedin-icon" />
+      </Link>
+      <Link to="../../../public/Cv_FelixLamas.pdf" target="_blanck">
+        <TbFileCv className="fs-1 mx-3 mx-lg-1 social-icons git-hub-icon" />
       </Link>
     </section>
   );

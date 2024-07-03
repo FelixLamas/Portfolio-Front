@@ -1,5 +1,6 @@
 import fotografy from "../../../../public/principal.jpg";
 import SocialNetworks from "../../socialNetworks/SocialNetworks";
+
 import "../../../App.css";
 
 const AboutMe = () => {
@@ -12,7 +13,9 @@ const AboutMe = () => {
             Contactame a <strong>felamas@gmail.com</strong>
           </h3>
         </section>
-        <SocialNetworks />
+        <section>
+          <SocialNetworks />
+        </section>
       </article>
 
       <article className="d-flex  flex-column my-4 px-2">
