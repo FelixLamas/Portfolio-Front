@@ -16,7 +16,7 @@ const SocialNetworks = () => {
       >
         <FaLinkedin className="fs-1 mx-4 mx-lg-2 social-icons linkedin-icon" />
       </Link>
-      <Link to="cv_felixlamas.pdf" target="_blanck">
+      <Link to="CV-FelixLamas-DesarroladorJr2024.pdf" target="_blanck">
         <TbFileCv className="fs-1 mx-3 mx-lg-1 social-icons git-hub-icon" />
       </Link>
     </section>

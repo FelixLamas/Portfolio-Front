@@ -33,7 +33,7 @@ const AdminProjects = () => {
   }, []);
   return (
     <section className="container mb-3">
-      <section className="d-flex flex-row justify-content-between my-3">
+      <section className="d-flex flex-row justify-content-between my-3 ">
         <h2>Proyectos</h2>
         <div>
           <Link to="/createProject" relative="path">
