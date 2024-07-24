@@ -36,7 +36,8 @@ body{
    height:300px;
    object-fit: cover;
     width: 100%;
-    border: 1px solid red;
+    border: 2px solid #fb0c06;
+    border-radius: 0.5em;
 }
 
 .image-container {

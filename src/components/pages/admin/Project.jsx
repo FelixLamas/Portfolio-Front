@@ -6,11 +6,10 @@ import Button from "react-bootstrap/Button";
 import Swal from "sweetalert2";
 import axios from "axios";
 
-const Project = ({ proj, setShowEdit, setProject,getProjects }) => {
-
+const Project = ({ proj, setShowEdit, setProject, getProjects }) => {
   const API = import.meta.env.VITE_API;
 
-  const deleteProject=()=>{
+  const deleteProject = () => {
     Swal.fire({
       title: "¿Estás seguro de eliminar la Proyecto?",
       icon: "warning",
@@ -18,26 +17,25 @@ const Project = ({ proj, setShowEdit, setProject,getProjects }) => {
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
       confirmButtonText: "Eliminar",
-      cancelButtonText:"Cancelar",
+      cancelButtonText: "Cancelar",
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          const res=await axios.delete(`${API}/project/delete/${proj._id}`);
+          const res = await axios.delete(`${API}/project/delete/${proj._id}`);
           getProjects();
           Swal.fire({
             title: "¡Exito!",
             text: "Se elimino el proyecto correctamente.",
-            icon: "success"
-          });      
+            icon: "success",
+          });
         } catch (error) {
           console.error(error);
         }
-        
       }
     });
-  }
+  };
   return (
-    <tr>
+    <tr className="align-middle">
       <td>{proj.name}</td>
       <td>{proj.description}</td>
       <td>
@@ -53,18 +51,18 @@ const Project = ({ proj, setShowEdit, setProject,getProjects }) => {
       <td>
         <img src={proj.image} alt={`Logo de ${proj.name}`} className="col-10" />
       </td>
-      <td>
+      <td className="text-center">
         <Button
-          variant="primary"
+          className="p-0 my-2"
           onClick={() => {
             setShowEdit(true);
             setProject(proj);
           }}
         >
-          <MdEditDocument className="fs-2" />
+          <MdEditDocument className="fs-2  btn-modal-custom" />
         </Button>
-        <Button variant="primary" onClick={ deleteProject}>
-          <AiFillDelete className="fs-2" />
+        <Button onClick={deleteProject} className="p-0">
+          <AiFillDelete className="fs-2  btn-modal-custom" />
         </Button>
       </td>
     </tr>
