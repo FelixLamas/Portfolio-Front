@@ -9,9 +9,6 @@ const Foot = () => {
           <p className="mb-1 fs-5">felamas@gmail.com</p>
           <p className="mb-1">381-5747112</p>
         </section>
-        <section className="order-lg-3">
-          <SocialNetworks />
-        </section>
         <section className="order-lg-2">
           <p className="mt-2 mb-1">
             &copy; 2024 | Felix Eloy Lamas | Tucumán Argentina

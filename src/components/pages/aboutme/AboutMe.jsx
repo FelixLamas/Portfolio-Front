@@ -1,66 +1,76 @@
 import fotografy from "../../../../public/principal.jpg";
-import SocialNetworks from "../../socialNetworks/SocialNetworks";
+
 
 import "../../../App.css";
 
 const AboutMe = () => {
   return (
-    <section className="container bg-custon-am ">
-      <article className="d-flex flex-column flex-lg-row justify-content-around align-items-center my-3 pt-3 px-2">
-        <section className="mb-3 mb-lg-0">
-          <h3>
-            Soy Felix Eloy Lamas, programador Fullstack. <br />
-            Contactame a <strong>felamas@gmail.com</strong>
+  <section className="container my-3">
+    {/* Contenedor principal con fondo gris unificado */}
+    <section className="bg-custon-am p-4 p-lg-5 shadow-sm">
+      
+      {/* Fila de Encabezado: Nombre y Contacto */}
+      <div className="row mb-4">
+        <div className="col-12">
+          <h3 className="mb-2">
+            Soy Felix Eloy Lamas, Analista de Datos y futuro Data Engineer.
           </h3>
-        </section>
-        <section>
-          <SocialNetworks />
-        </section>
-      </article>
-
-      <article className="d-flex  flex-column my-4 px-2">
-        <h3>Acerca de mí.</h3>
-        <section className="d-flex  flex-column flex-lg-row align-items-center ">
-          <p className="me-md-4">
-            En esta sección te contaré un poco sobre quién soy.
-            <br />
-            Soy estudiante de la carrera de Programador Universitario en la UNT
-            y egresado del Curso de Programador Fullstack de Rolling Code
-            Schoole.
-            <br />
-            Soy padre de dos hermosas niñas Lucy y Sofy, y estoy en pareja con
-            Juliana.
-            <br />
-            Me gusta el futbol y el ciclismo. <br />
-            Comencé a programar hace unos años en la facultad, mi primer
-            lenguaje de programación fue C. <br />
-            La facultad me dio la posibilidad de utilizar varios lenguajes. Y me
-            enseño conceptos importante para el desarrollo y una base teórica
-            amplia. <br />
-            En 2023 me postule para una beca en Rolling Code Schoole, salí
-            seleccionado y comencé el curso que me dio la posibilidad de aplicar
-            conceptos ya aprendidos y conocer otra forma de aprender. Trabaje en
-            grupo para poder presentar los proyectos, me dio una experiencia
-            valiosa, de como se trabaja de manera colaborativa, de plantear
-            objetivos, conseguir avanzar en equipo y manejo de otras
-            herramientas y habilidades que son necesarias para poder crecer como
-            desarrollador y también como persona.
-            <br />
-            Es un breve resumen de quien soy, ahora en las siguientes secciones
-            te mostrare las tecnologías que conozco y los proyectos en los que
-            trabajé.
+          <p className="fs-5">
+            Contactame en: <strong>felamas@gmail.com</strong>
           </p>
-          <div>
-            <img
-              src={fotografy}
-              alt="Fotografia familiar"
-              className="col-12 col-lg-12 mb-3 mb-lg-0"
-            />
-          </div>
-        </section>
-      </article>
+        </div>
+      </div>
+
+      <hr className="my-4" />
+
+      {/* Fila de Contenido: Texto e Imagen */}
+      <div className="row align-items-center">
+        
+        {/* Columna de Texto (7/12 del ancho en pantallas grandes) */}
+        <div className="col-12 col-lg-7">
+          <article>
+            <h5 className="fw-bold text-primary-custom">🚀 Mi camino profesional</h5>
+            <p>
+              Vengo del mundo del desarrollo Fullstack, lo que me dio una base lógica y técnica muy sólida. Sin embargo, mi pasión por optimizar procesos y estructurar información me llevó a especializarme en los datos.
+            </p>
+            <p>
+              Actualmente, me desempeño como <strong>Analista de Datos en Teleperformance</strong>, donde mi enfoque ha evolucionado hacia la ingeniería: hoy paso mis días diseñando e implementando <strong>procesos ETL y automatizaciones</strong> de flujos de datos para hacer los reportes más eficientes y precisos.
+            </p>
+          </article>
+
+          <article className="mt-4">
+            <h5 className="fw-bold text-primary-custom">📚 Formación y Evolución</h5>
+            <p>
+              Mi base académica comenzó en la UNT (Programador Universitario), donde aprendí la importancia de la teoría computacional con C. Luego, mi paso por Rolling Code School me enseñó el valor del trabajo colaborativo, el cumplimiento de objetivos en equipo y el desarrollo ágil.
+            </p>
+            <p>
+              Hoy, sigo en constante movimiento: estoy realizando el <strong>Bootcamp de Código Facilito</strong> preparándome específicamente para la certificación <strong>Microsoft DP-700 (Azure Data Engineer Associate)</strong>. Mi objetivo es dominar herramientas como <strong>Microsoft Fabric</strong> para llevar la arquitectura de datos al siguiente nivel.
+            </p>
+          </article>
+
+          <article className="mt-4">
+            <h5 className="fw-bold text-primary-custom">🏠 Fuera del código</h5>
+            <p>
+              Soy el orgulloso padre de Lucy y Sofy, y comparto mi vida con Juliana. 
+              Me encanta el futbol y el ciclismo.
+            </p>
+          </article>
+        </div>
+
+        {/* Columna de Imagen (5/12 del ancho en pantallas grandes) */}
+        <div className="col-12 col-lg-5 text-center mt-4 mt-lg-0">
+          <img
+            src={fotografy}
+            alt="Fotografia familiar"
+            className="img-fluid rounded shadow-lg border border-light"
+            style={{ maxHeight: "450px", objectFit: "cover" }}
+          />
+        </div>
+
+      </div>
     </section>
-  );
+  </section>
+);
 };
 
 export default AboutMe;
