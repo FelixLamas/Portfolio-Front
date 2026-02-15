@@ -1,0 +1,5 @@
+<svg width="200" height="60" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+  <text x="10" y="45" font-family="Arial, sans-serif" font-weight="bold" font-size="40" fill="#b8b8b8">Fel</text>
+  <text x="75" y="45" font-family="Arial, sans-serif" font-weight="bold" font-size="40" fill="#a50000">DE</text>
+  <rect x="10" y="50" width="130" height="4" fill="#a50000" />
+</svg>
