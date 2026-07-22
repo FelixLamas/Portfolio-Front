@@ -13,8 +13,8 @@ const AboutMe = () => {
       <div className="row mb-4">
         <div className="col-12">
           <h3 className="mb-2">
-            Soy Felix Eloy Lamas, Analista de Datos y futuro Data Engineer.
-          </h3>
+  Soy <strong>Felix Eloy Lamas</strong> | Data Engineer & Analytics Specialist.
+</h3>
           <p className="fs-5">
             Contactame en: <strong>felamas@gmail.com</strong>
           </p>
@@ -44,8 +44,8 @@ const AboutMe = () => {
               Mi base académica comenzó en la UNT (Programador Universitario), donde aprendí la importancia de la teoría computacional con C. Luego, mi paso por Rolling Code School me enseñó el valor del trabajo colaborativo, el cumplimiento de objetivos en equipo y el desarrollo ágil.
             </p>
             <p>
-              Hoy, sigo en constante movimiento: estoy realizando el <strong>Bootcamp de Código Facilito</strong> preparándome específicamente para la certificación <strong>Microsoft DP-700 (Azure Data Engineer Associate)</strong>. Mi objetivo es dominar herramientas como <strong>Microsoft Fabric</strong> para llevar la arquitectura de datos al siguiente nivel.
-            </p>
+  Hoy, sigo en constante movimiento: finalicé la formación de <strong>Data Engineer en Coderhouse</strong> y completé el bootcamp de ingeniería de datos enfocado en <strong>Microsoft Fabric en Código Facilito</strong>. Mi objetivo continúa siendo especializarme cada vez más en <strong>arquitecturas cloud</strong> y el procesamiento avanzado de datos.
+</p>
           </article>
 
           <article className="mt-4">
