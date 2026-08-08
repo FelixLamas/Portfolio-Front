@@ -12,10 +12,10 @@ const Projects = () => {
       institution: "Coderhouse",
       date: "Cursada finalizada",
       hours: "Proyecto Integrador en corrección",
-      status: "Pendiente de Certificado",
-      variant: "warning",
-      image: null,
-      link: null
+      status: "Completado",
+      variant: "success",
+      image: "Certificado_Data_Engineer.jpg",
+      link: "Certificado_Data_Engineer.jpg"
     },
     {
       title: "Bootcamp Ingeniero de Datos en Fabric",
@@ -64,12 +64,12 @@ const Projects = () => {
   // Configuración de Proyectos
   const projectsList = [
     {
-      title: "Análisis de Rendimiento FC Barcelona (2020-2025)",
-      category: "Data Analytics & ETL",
+      title: "Pipeline de Datos Reproducible - Modern Data Stack",
+      category: "Data Engineering (Proyecto Final Coderhouse)",
       description:
-        "Proyecto de análisis de rendimiento deportivo y métricas financieras del FC Barcelona. Incluye extracción de datos, procesos de transformación (ETL), modelado relacional/estrella y visualización analítica.",
-      tech: ["Power BI", "SQL", "Power Query", "Excel", "Data Modeling"],
-      github: "https://github.com/FelixLamas/Data-Analytics-Rendimiento-FCB",
+        "Arquitectura e implementación de un pipeline end-to-end utilizando Docker, Apache Spark / PySpark, dbt para transformaciones con SQL modular, Airflow para orquestación y MinIO como Data Lake local.",
+      tech: ["PySpark", "dbt", "Apache Airflow", "Docker", "MinIO", "SQL"],
+      github: "https://github.com/FelixLamas/Proyecto_Final_Data_Engineer_Coderhouse",
       status: "Completado",
     },
     {
@@ -82,14 +82,16 @@ const Projects = () => {
       status: "Completado",
     },
     {
-      title: "Pipeline de Datos Reproducible - Modern Data Stack",
-      category: "Data Engineering (Proyecto Final Coderhouse)",
+      title: "Análisis de Rendimiento FC Barcelona (2020-2025)",
+      category: "Data Analytics & ETL",
       description:
-        "Arquitectura e implementación de un pipeline end-to-end utilizando Docker, Apache Spark / PySpark, dbt para transformaciones con SQL modular, Airflow para orquestación y MinIO como Data Lake local.",
-      tech: ["PySpark", "dbt", "Apache Airflow", "Docker", "MinIO", "SQL"],
-      github: null,
-      status: "En revisión / Próximamente",
+        "Proyecto de análisis de rendimiento deportivo y métricas financieras del FC Barcelona. Incluye extracción de datos, procesos de transformación (ETL), modelado relacional/estrella y visualización analítica.",
+      tech: ["Power BI", "SQL", "Power Query", "Excel", "Data Modeling"],
+      github: "https://github.com/FelixLamas/Data-Analytics-Rendimiento-FCB",
+      status: "Completado",
     },
+    
+    
   ];
 
   return (
