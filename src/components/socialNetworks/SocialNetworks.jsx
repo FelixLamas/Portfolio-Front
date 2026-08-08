@@ -6,7 +6,7 @@ import("../../App.css");
 
 const SocialNetworks = () => {
   return (
-    <section>
+    <section className="mx-auto ">
       <Link to="https://github.com/FelixLamas" target="_blanck">
         <FaGithubAlt className="fs-1 mx-4 mx-lg-2 social-icons git-hub-icon " />
       </Link>

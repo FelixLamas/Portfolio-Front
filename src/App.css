@@ -56,20 +56,20 @@ body{
 }
 
 .social-icons{
-  color: rgba(0, 0, 0, 0.842);
+  color: rgba(82, 77, 77, 0.842);
 }
 .git-hub-icon{
-  color:rgba(0, 0, 0, 0.849);
+  color:rgba(118, 129, 178, 0.849);
 }
 .linkedin-icon{
-  color: #0e76a8;
+  color: rgba(118, 129, 178, 0.849);
 }
 
 .git-hub-icon:hover{
-  color: #ffc52c ;
+  color: #c9cddc ;
 }
 .linkedin-icon:hover{
-  color: #ffc52c;
+  color: #c9cddc;
 }
 
 .bg-custon-am{
